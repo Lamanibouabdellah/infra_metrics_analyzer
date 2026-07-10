@@ -1,10 +1,10 @@
 from langgraph.graph import StateGraph, START, END
-from models.state import InfraState
-from nodes.ingest import ingest
-from nodes.analyse import analyse
-from nodes.detect import detect
-from nodes.recommend import recommend
-from nodes.write import write
+from infra_metrics_analyzer.models.state import InfraState
+from infra_metrics_analyzer.nodes.ingest import ingest
+from infra_metrics_analyzer.nodes.analyse import analyse
+from infra_metrics_analyzer.nodes.detect import detect
+from infra_metrics_analyzer.nodes.recommend import recommend
+from infra_metrics_analyzer.nodes.write import write
 
 
 def build_graph():

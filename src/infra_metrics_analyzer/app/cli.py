@@ -1,21 +1,21 @@
 import json
 import typer
 from pydantic import ValidationError
-from models.input import Snapshot
-from rules.thresholds import THRESHOLDS
-from settings import settings
+from infra_metrics_analyzer.models.input import Snapshot
+from infra_metrics_analyzer.rules.thresholds import THRESHOLDS
+from infra_metrics_analyzer.settings import settings
 
 app = typer.Typer(name="infra-metrics-analyzer", add_completion=False)
 
 
 @app.command()
 def run(
-    input_file: str = typer.Option(settings.input_file, "--input",   help="Input JSON file path"),
-    output_file: str = typer.Option(settings.output_file, "--output", help="Output JSON file path"),
-    verbose: bool    = typer.Option(False, "--verbose",               help="Print node execution steps"),
+    input_file:  str  = typer.Option(settings.input_file,  "--input",   help="Input JSON file path"),
+    output_file: str  = typer.Option(settings.output_file, "--output",  help="Output JSON file path"),
+    verbose:     bool = typer.Option(False, "--verbose",                 help="Print node execution steps"),
 ):
     """Run the full analysis pipeline."""
-    from app.graph import build_graph
+    from infra_metrics_analyzer.app.graph import build_graph
 
     settings.input_file  = input_file
     settings.output_file = output_file

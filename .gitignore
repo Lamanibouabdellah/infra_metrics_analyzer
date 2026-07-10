@@ -1,19 +1,32 @@
 # Secrets
 .env
 
+# data
+data/
+
 # Python
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
+
+# Environnements virtuels
 .venv/
 venv/
+env/
+
+# Distribution / packaging
 *.egg-info/
 dist/
 build/
+.eggs/
 
-# Output généré
-output.json
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
 
 # IDE
 .vscode/
 .idea/
+*.swp

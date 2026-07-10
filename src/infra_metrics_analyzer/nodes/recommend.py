@@ -1,9 +1,9 @@
 import json
-from openai import OpenAI
-from models.state import InfraState
-from settings import settings
+from mistralai.client import Mistral
+from infra_metrics_analyzer.models.state import InfraState
+from infra_metrics_analyzer.settings import settings
 
-_client = OpenAI(api_key=settings.openai_api_key)
+_client = Mistral(api_key=settings.mistral_api_key)
 
 _SYSTEM_PROMPT = """
 You are an infrastructure optimization expert.
@@ -29,7 +29,7 @@ def recommend(state: InfraState) -> dict:
         "anomalies": state["anomalies"],
     })
 
-    response = _client.chat.completions.create(
+    response = _client.chat.complete(
         model=settings.llm_model,
         temperature=settings.llm_temperature,
         max_tokens=settings.llm_max_tokens,

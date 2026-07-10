@@ -1,5 +1,5 @@
-from models.state import InfraState
-from rules.thresholds import THRESHOLDS
+from infra_metrics_analyzer.models.state import InfraState
+from infra_metrics_analyzer.rules.thresholds import THRESHOLDS
 
 
 def _severity(value: float, levels: dict[str, float]) -> str | None:

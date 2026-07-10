@@ -1,8 +1,8 @@
 import json
 from datetime import datetime, timezone
-from models.output import InfraReport
-from models.state import InfraState
-from settings import settings
+from infra_metrics_analyzer.models.output import InfraReport
+from infra_metrics_analyzer.models.state import InfraState
+from infra_metrics_analyzer.settings import settings
 
 _STATUS_PRIORITY = {"offline": 2, "degraded": 1, "online": 0}
 _SERVICES = ("database", "api_gateway", "cache")
